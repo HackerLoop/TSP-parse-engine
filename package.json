@@ -1,0 +1,18 @@
+{
+  "name": "app",
+  "private": true,
+  "scripts": {
+    "start": "CHANNEL=hackerloop CURRENT_SET=1 node main.js"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-runtime": "^6.20.0",
+    "meteor-node-stubs": "~0.2.4",
+    "mongodb": "^2.2.31",
+    "mongojs": "^2.4.1",
+    "tmi.js": "^1.2.1",
+    "underscore": "^1.8.3"
+  }
+}
