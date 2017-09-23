@@ -3,15 +3,15 @@
 ## Install
 1. Install dependencies```$ npm install```
 2. Launch MongoDB
-3. Seed MongoDB (see below)
+3. Seed regprocess collection (see below)
 3. Run program with defaults params (env vars) ```$ npm start```
 
 
 
-## Seed MongoDB
+## Seed regprocess collection
 
 ```
-db.post.insert([
+db.regprocess.insert([
 {
   "_id": ObjectId("59c3c180608b9f246b2302a1"),
   "regex": "^(w|s|d|a|j|k)$",
