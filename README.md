@@ -1,5 +1,6 @@
 # TSP parse engine
 
 ## Install
-```$ npm install```
-```$ npm start```
+1. Install dependencies```$ npm install```
+2. Launch MongoDB
+3. Run program with defaults params (env vars) ```$ npm start```
