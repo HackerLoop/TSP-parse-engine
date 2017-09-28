@@ -30,7 +30,7 @@ var client = new tmi.client(options);
 client.connect();
 
 // Connection URL
-const url = 'mongodb://localhost:27017/myproject';
+const url = MONGODB_URL;
 // Use connect method to connect to the Server
 MongoClient.connect(url,{
     // retry to connect for 60 times
