@@ -6,6 +6,7 @@ const mongojs = require('mongojs');
 const CURRENT_SET = (process.env.CURRENT_SET || 1);
 const CHANNEL = (process.env.CHANNEL || 'hackerloop');
 const MONGODB_URL = (process.env.MONGODB_URL || 'mongodb://localhost:27017/hackerloop');
+const TESTMODE = process.env.TESTMODE || false;
 
 global.db = mongojs(MONGODB_URL);
 
@@ -124,12 +125,26 @@ const results = collection.find({ set: CURRENT_SET }).toArray((err, docs) => {
     client.say(`${CHANNEL}`, 'For playing type: w or s or d or a or j or k');
   });
 
+  const makeid = () => {
+    let text = '';
+    const possible = 'wsadvb';
+    for (let i = 0; i < 1; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  };
+
   client.on("chat", function (channel, user, message, self) {
       if (user.mod) {
           // User is a mod.
       }
-      arrayRules.ruleVote(message, user);
-      arrayRules.ruleRecord(message, user);
+      if (TESTMODE) {
+        console.log(makeid());
+        arrayRules.ruleRecord(makeid(), user);
+      } else {
+        arrayRules.ruleVote(message, user);
+        arrayRules.ruleRecord(message, user);
+      }
       // console.log( (new RegExp('^poongYuri$', 'ig')).test(message) );
   });
 });
