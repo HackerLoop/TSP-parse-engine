@@ -10,11 +10,12 @@
 ## Launch
 
   ### Live mode
-  CHANNEL=hackerloop CURRENT_SET=1 MONGODB_URL=mongodb://localhost:3001/meteor node main.js
+  Run on #hackerloop channel twich
+  ```CHANNEL=hackerloop CURRENT_SET=1 MONGODB_URL=mongodb://localhost:3001/meteor node main.js```
 
   ### Test mode
-  Find a channel that have a big traffic and message
-  TESTMODE=true CHANNEL=imaqtpie CURRENT_SET=1 MONGODB_URL=mongodb://localhost:3001/meteor node main.js
+  Find a channel on twich that have a big traffic and message
+  ```TESTMODE=true CHANNEL=imaqtpie CURRENT_SET=1 MONGODB_URL=mongodb://localhost:3001/meteor node main.js```
 
 ## Seed regprocess collection
 
