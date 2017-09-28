@@ -3,10 +3,11 @@ const assert = require('assert');
 const _ = require('underscore');
 const mongojs = require('mongojs');
 
-global.db = mongojs('mongodb://localhost:27017/myproject');
-
 const CURRENT_SET = (process.env.CURRENT_SET || 1);
 const CHANNEL = (process.env.CHANNEL || 'hackerloop');
+const MONGODB_URL = (process.env.MONGODB_URL || 'mongodb://localhost:27017/hackerloop');
+
+global.db = mongojs(MONGODB_URL);
 
 
 var tmi = require("tmi.js");
