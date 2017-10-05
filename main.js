@@ -125,7 +125,7 @@ const results = collection.find({ set: CURRENT_SET }).toArray((err, docs) => {
     client.say(`${CHANNEL}`, 'For playing type: w or s or d or a or j or k');
   });
 
-  const makeid = () => {
+  const makeRecord = () => {
     let text = '';
     const possible = 'wsadvb';
     for (let i = 0; i < 1; i++) {
@@ -134,13 +134,24 @@ const results = collection.find({ set: CURRENT_SET }).toArray((err, docs) => {
     return text;
   };
 
+  const makeVote = () => {
+    let position = '';
+    const possible = ['fart', 'prout'];
+    for (let i = 0; i < 1; i++) {
+      position += Math.floor(Math.random() * possible.length);
+    }
+    return possible[position];
+  };
+
   client.on("chat", function (channel, user, message, self) {
       if (user.mod) {
           // User is a mod.
       }
       if (TESTMODE) {
-        console.log(makeid());
-        arrayRules.ruleRecord(makeid(), user);
+        arrayRules.ruleRecord(makeRecord(), user);
+        console.log(makeRecord());
+        arrayRules.ruleVote(makeVote(), user);
+        console.log(makeVote());
       } else {
         arrayRules.ruleVote(message, user);
         arrayRules.ruleRecord(message, user);
