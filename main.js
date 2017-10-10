@@ -91,7 +91,7 @@ const results = collection.find({ set: CURRENT_SET }).toArray((err, docs) => {
     arrayRules[`rule${ruleName}`] = (message, user) => {
       const reg = new RegExp(obj.regex, options);
       if (message.match(reg)) {
-        const result = (message.match(reg))[0];
+        const result = ((message.match(reg))[0]).toLowerCase();
         if (obj.type === 'vote') {
           const inc = {};
           inc[`choices.${result}`] = 1;
