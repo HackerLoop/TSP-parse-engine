@@ -70,6 +70,7 @@ wait(2000);
 
 const collections = {};
 collections.vote = db.collection('vote');
+collections.votelogs = db.collection('votelogs');
 collections.record = db.collection('record');
 
 collections.vote.count({ set: CURRENT_SET, channel: CHANNEL }, function(error, count) {
@@ -102,6 +103,8 @@ const results = collection.find({ set: CURRENT_SET }).toArray((err, docs) => {
           }, {
             $inc: inc
           });
+
+          collections['votelogs'].insert({ set: CURRENT_SET, channel: CHANNEL, user, vote: result });
           // client.userstate['#hackerloop'] = {};
         }
         if (obj.type === 'record') {
